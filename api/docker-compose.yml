@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # Serviço do Classificador de Imagens
+  image-classifier:
+    build: ./image-classifier # Constrói a imagem a partir da pasta image-classifier
+    container_name: image-classifier-app
+    ports:
+      - "5000:5000" # Mapeia a porta interna do container para a externa (opcional, mas útil para debug)
+    # Volumes: - "./image-classifier/cache:/root/.cache" # Se precisar de cache para o modelo HF
+    environment:
+      # Variáveis de ambiente, se necessário para o classificador
+      # Ex: HuggingFace_TOKEN: ${HF_TOKEN}
+      PYTHONUNBUFFERED: "1" # Garante que os logs apareçam imediatamente
+
+  # Serviço do Gerador de Texto
+  text-generator:
+    build: ./text-generator # Constrói a imagem a partir da pasta text-generator
+    container_name: text-generator-app
+    ports:
+      - "5001:5001" # Mapeia a porta interna do container para a externa (opcional, mas útil para debug)
+    environment:
+      PYTHONUNBUFFERED: "1"
+
+  # Serviço do API Gateway (Orquestrador)
+  api-gateway:
+    build: ./api-gateway # Constrói a imagem a partir da pasta api-gateway
+    container_name: api-gateway-app
+    ports:
+      - "8000:8000" # A porta que você acessará do seu navegador/curl
+    depends_on: # Garante que os serviços de IA estejam rodando antes do gateway
+      - image-classifier
+      - text-generator
+    environment:
+      PYTHONUNBUFFERED: "1"

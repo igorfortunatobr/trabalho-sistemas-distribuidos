@@ -1,0 +1,30 @@
+{
+  "cardboard": {
+    "instructions": "Caixas de papelão, embalagens de ovos e rolos de papel higiênico. Certifique-se de que estão limpos e secos. Achate as caixas para economizar espaço. Materiais engordurados ou com restos de comida (caixas de pizza sujas) não são recicláveis e devem ir para o lixo comum.",
+    "tips": "Remova fitas adesivas e outros materiais não-papel antes do descarte."
+  },
+  "glass": {
+    "instructions": "Garrafas, potes de alimentos e frascos de vidro. Lave para remover resíduos. Tampas de metal ou plástico devem ser removidas e descartadas separadamente. Vidros quebrados devem ser embalados com segurança (ex: jornal, caixa) para evitar acidentes com os coletores.",
+    "tips": "Não inclua espelhos, cerâmicas, cristais ou lâmpadas, pois têm composições diferentes e não são recicláveis com o vidro comum."
+  },
+  "metal": {
+    "instructions": "Latas de alumínio (refrigerante, cerveja) e latas de aço (molho de tomate, milho). Lave para remover resíduos. Amasse as latas para economizar espaço. Aerossóis vazios também podem ser recicláveis, mas verifique as normas locais.",
+    "tips": "Não é necessário remover os rótulos de papel. Não descarte latas de tinta ou produtos químicos sem esvaziá-las e verificar as instruções de descarte especial."
+  },
+  "paper": {
+    "instructions": "Jornais, revistas, folhas de caderno, envelopes. Deve estar seco e limpo. Pode ser amassado ou picado. Livros podem ser doados ou descartados para reciclagem.",
+    "tips": "Papel higiênico usado, guardanapos sujos, adesivos e papel carbono não são recicláveis. Evite molhar o papel a ser reciclado."
+  },
+  "plastic": {
+    "instructions": "Garrafas PET, embalagens de produtos de limpeza, potes de iogurte. Lave e retire o excesso de resíduos. Amasse para economizar espaço. Verifique o símbolo de reciclagem (triângulo com número).",
+    "tips": "Não recicle plásticos de eletrônicos, isopor, ou embalagens metalizadas (como as de salgadinho), pois possuem composições diferentes."
+  },
+  "trash": {
+    "instructions": "Resíduos orgânicos (restos de comida, cascas de frutas), papel higiênico usado, fraldas, absorventes, bitucas de cigarro, poeira. Tudo que não pode ser reciclado ou compostado. Descarte em sacos bem fechados.",
+    "tips": "Considere a compostagem para resíduos orgânicos se possível."
+  },
+  "unknown": {
+    "instructions": "Não foi possível identificar o material. Por favor, tente novamente com uma imagem mais clara ou descarte no lixo comum.",
+    "tips": "Em caso de dúvida, o descarte no lixo comum é a opção mais segura para evitar contaminar materiais recicláveis."
+  }
+}

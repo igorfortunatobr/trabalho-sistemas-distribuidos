@@ -1,0 +1,2 @@
+Flask
+requests # Para fazer requisições HTTP para os outros microserviços
