@@ -1,4 +1,4 @@
-function sendImage() {
+async function sendImage() {
     const input = document.getElementById('imageInput');
     const file = input.files[0];
     
@@ -6,14 +6,26 @@ function sendImage() {
     
     const reader = new FileReader();
     
-    reader.onload = function(event) {
+    reader.onload = async function(event) {
         const imageUrl = event.target.result;
         appendMessage('user', `<img src="${imageUrl}">`);
-        // Simula a chamada à API e resposta
-        setTimeout(() => {
-            const responseText = "Recebido! Essa imagem parece interessante. Acredito que seja um pedaço de papelão ";
-            appendMessage('api', responseText);
-        }, 1000);
+
+        console.log(imageUrl)
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch('http://localhost:8000/process_trash_image', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            appendMessage('api', data?.discard_instructions || 'Não foi possível identificar o material.');
+            console.log(data);
+        });
+
+        appendMessage('api', result);
     };
     reader.readAsDataURL(file);
     input.value = '';
