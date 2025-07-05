@@ -73,9 +73,6 @@ Este projeto foi cuidadosamente projetado para atender a todos os requisitos do 
       * A contribuição de todos os membros do grupo é registrada através dos commits e do histórico do repositório.
 
 ### 4\. Documentação Arquitetônica (15 pts)
-
-(Esta seção seria detalhada com os diagramas e descrições no seu `README.md` final)
-
   * **Visão inicial pré-modelagem de ameaças:**
       * **Diagrama de Componentes:** (Ex: Boxes para Cliente, API Gateway, Image Classifier, Text Generator com setas indicando HTTP).
       * **Diagrama de Implantação:** (Ex: Containers Docker para cada serviço em um único host).
