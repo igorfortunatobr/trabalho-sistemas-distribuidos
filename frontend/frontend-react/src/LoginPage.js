@@ -17,12 +17,14 @@ export default function LoginPage({ onLoginSuccess, onShowRegister }) {
         headers: { 
           "Content-Type": "application/json" 
         },
-        body: JSON.stringify({ user, pass }),
+        body: JSON.stringify({ username: user, password: pass }),
       });
       
       const data = await response.json();
       
       if (data.success) {
+        // Salvar apenas o token no localStorage
+        localStorage.setItem('token', data.token);
         onLoginSuccess(data.user);
       } else {
         setError(data.error || "Erro no login");
