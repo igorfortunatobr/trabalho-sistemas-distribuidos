@@ -1,6 +1,26 @@
-version: '3.8'
-
 services:
+  # Container do banco de dados SQLite
+  database:
+    build: ./database
+    container_name: database-container
+    volumes:
+      - database_data:/app/data
+    environment:
+      PYTHONUNBUFFERED: "1"
+
+  # Serviço de banco de dados (API)
+  database-service:
+    build: ./database-service
+    container_name: database-service-app
+    ports:
+      - "5002:5002"
+    depends_on:
+      - database
+    volumes:
+      - database_data:/app/data
+    environment:
+      PYTHONUNBUFFERED: "1"
+
   # Serviço do Classificador de Imagens
   image-classifier:
     build: ./image-classifier # Constrói a imagem a partir da pasta image-classifier
@@ -31,5 +51,10 @@ services:
     depends_on: # Garante que os serviços de IA estejam rodando antes do gateway
       - image-classifier
       - text-generator
+      - database-service
     environment:
       PYTHONUNBUFFERED: "1"
+      JWT_SECRET_KEY: "CHAVE_SECRETA123"
+
+volumes:
+  database_data:
