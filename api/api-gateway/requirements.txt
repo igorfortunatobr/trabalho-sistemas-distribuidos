@@ -1,2 +1,4 @@
-Flask
-requests # Para fazer requisições HTTP para os outros microserviços
+Flask==2.3.3
+Flask-CORS==4.0.0
+requests==2.31.0
+PyJWT==2.8.0
