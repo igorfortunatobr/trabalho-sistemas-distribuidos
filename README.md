@@ -79,6 +79,8 @@ Este projeto foi cuidadosamente projetado para atender a todos os requisitos do 
       * **Fluxo de Dados:** Usuário -\> API Gateway -\> Image Classifier -\> API Gateway -\> Text Generator -\> API Gateway -\> Usuário.
       * **Ativos:** Imagens de lixo, modelos de IA, instruções de descarte.
       * **Ameaças Iniciais:** Acesso não autorizado às APIs, injeção de dados maliciosos na imagem/entrada de texto, negação de serviço.
+      * **As rotas dos microsserviços não possuíam proteção CORS (Cross-Origin Resource Sharing).
+      * **Não havia autenticação JWT (JSON Web Token) implementada para controle de acesso.
   * **Visão final após implementação das medidas de mitigação:**
       * **Medidas de Mitigação Implementadas:**
           * **Validação de Entrada:** As APIs validam o tipo e formato dos dados recebidos para prevenir ataques de injeção ou dados inválidos.
@@ -86,6 +88,8 @@ Este projeto foi cuidadosamente projetado para atender a todos os requisitos do 
           * **Isolamento de Containers:** O Docker fornece isolamento inerente entre os microsserviços, limitando o impacto de uma eventual falha em um único serviço.
           * **Princípio do Privilégio Mínimo:** Os containers rodam com as permissões essenciais para suas funções.
           * **Configuração de Rede Interna do Docker Compose:** Os serviços se comunicam por nomes de serviço (ex: `http://image-classifier:5000`), o que é mais seguro do que expor todas as portas diretamente.
+          * **Implementação de CORS para restringir e controlar o acesso às APIs apenas por origens autorizadas.
+          * **Inclusão de autenticação JWT, exigindo token válido para acessar rotas protegidas, aumentando a segurança e o controle de acesso ao sistema.
       * **Diagramas Atualizados:** Refletindo as medidas de segurança, como validação de dados nas entradas das APIs.
 
 -----
