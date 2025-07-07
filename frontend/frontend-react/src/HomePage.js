@@ -39,8 +39,13 @@ export default function HomePage({ user, onLogout }) {
       const formData = new FormData();
       formData.append("file", file);
 
+      const token = localStorage.getItem('token');
+      
       const response = await fetch("http://localhost:8000/process_trash_image", {
         method: "POST",
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
         body: formData,
       });
       
